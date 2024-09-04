@@ -1,7 +1,0 @@
-edu/mv/models/BiduleDTO.class
-edu/mv/models/BiduleResponse.class
-edu/mv/repository/BiduleRepository.class
-edu/mv/mapping/BiduleMapper.class
-edu/mv/service/BiduleService.class
-edu/mv/persistence/PersistenceService.class
-edu/mv/db/models/BidulePersistence.class
