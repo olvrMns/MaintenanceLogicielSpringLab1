@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   datasource:
@@ -11,3 +11,6 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
   h2:
     console.enabled: true
+  sql:
+    init:
+      mode: always

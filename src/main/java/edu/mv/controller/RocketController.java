@@ -22,7 +22,7 @@ public class RocketController {
     }
 
     @GetMapping("/rocket/{rocketid}")
-    public RocketDTO getRocket(@PathVariable(value = "rocketid") String id) throws GetRocketException {
+    public RocketDTO getRocket(@PathVariable(value = "rocketid") final String id) throws GetRocketException {
         try {
             return rocketService.getRocket(Integer.valueOf(id));
         } catch (RocketNotFoundException e) {
