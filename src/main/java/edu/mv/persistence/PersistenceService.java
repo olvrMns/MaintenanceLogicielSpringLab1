@@ -1,44 +1,42 @@
 package edu.mv.persistence;
 
-import edu.mv.db.models.BidulePersistence;
-import edu.mv.mapping.BiduleMapper;
-import edu.mv.models.BiduleDTO;
-import edu.mv.repository.BiduleRepository;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import java.util.Optional;
+import edu.mv.db.models.Rocket;
+import edu.mv.mapping.RocketMapper;
+import edu.mv.models.RocketDTO;
+import edu.mv.repository.RocketRepository;
 
 @Service
 public class PersistenceService {
 
     @Autowired
-    private BiduleRepository biduleRepository;
+    private RocketRepository RocketRepository;
 
-    public BiduleDTO retrieve(String id) {
-        Optional<BidulePersistence> biduleOptional = biduleRepository.findById(id);
-        if (biduleOptional.isPresent()) {
-            return convertToBiduleDTO(biduleOptional.get());
+    public RocketDTO retrieve(int id) throws RocketNotFoundException {
+        Optional<Rocket> RocketOptional = RocketRepository.findById(id);
+        if (RocketOptional.isPresent()) {
+            return convertToRocketDTO(RocketOptional.get());
         }
 
-        return null; // TODO exception
+        throw new RocketNotFoundException(id);
     }
 
-    public void save(BiduleDTO bidule) {
-        biduleRepository.save(convertToBidulePersistence(bidule));
+    public void save(RocketDTO Rocket) {
+        RocketRepository.save(convertToRocketPersistence(Rocket));
     }
 
-    private BidulePersistence convertToBidulePersistence(BiduleDTO biduleDTO) {
-        BidulePersistence bidulePersistence = BiduleMapper.INSTANCE.biduleDTOToBidule( biduleDTO );
-        return bidulePersistence;
+    private Rocket convertToRocketPersistence(RocketDTO RocketDTO) {
+        Rocket RocketPersistence = RocketMapper.INSTANCE.RocketDTOToRocket(RocketDTO);
+        return RocketPersistence;
     }
 
-    private BiduleDTO convertToBiduleDTO(BidulePersistence bidulePersistence) {
-        BiduleDTO biduleDTO = BiduleMapper.INSTANCE.biduleToBiduleDTO( bidulePersistence );
-        return biduleDTO;
+    private RocketDTO convertToRocketDTO(Rocket rocket) {
+        RocketDTO RocketDTO = RocketMapper.INSTANCE.RocketToRocketDTO(rocket);
+        return RocketDTO;
     }
-
-
 
 }

@@ -1,15 +1,37 @@
 package edu.mv.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.mv.models.RocketDTO;
+import edu.mv.persistence.RocketNotFoundException;
+import edu.mv.service.RocketService;
 
 @RestController
 @RequestMapping("/")
 public class RocketController {
 
-    @GetMapping("/superRocket")
-    public String superRocket() {
-        return "Super Rocket!";
+    private RocketService rocketService;
+
+    public RocketController(RocketService rocketService) {
+        this.rocketService = rocketService;
+    }
+
+    @GetMapping("/rocket/{rocketid}")
+    public RocketDTO getRocket(@PathVariable(value = "rocketid") String id) throws GetRocketException {
+        try {
+            return rocketService.getRocket(Integer.valueOf(id));
+        } catch (RocketNotFoundException e) {
+            throw new GetRocketException();
+        }
+    }
+
+    @PostMapping("/rocket")
+    public void saveRocket(@RequestBody RocketDTO rocket) {
+        rocketService.putRocket(rocket);
     }
 }
