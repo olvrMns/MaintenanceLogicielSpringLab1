@@ -13,15 +13,16 @@ public class Rocket {
 
     private String name;
 
-    public String getSorte() {
-        return sorte;
+    private String type;
+
+    public String getType() {
+        return this.type;
     }
 
-    public void setSorte(String sorte) {
-        this.sorte = sorte;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    private String sorte;
 
     public int getId() {
         return id;
