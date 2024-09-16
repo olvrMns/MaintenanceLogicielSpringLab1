@@ -14,8 +14,10 @@ spring:
   sql:
     init:
       mode: always
-#springdoc:
-#  swagger-ui:
-#    enabled: true
-#  api-docs:
-#    enabled: true
+
+# URL: http://localhost:5555/swagger-ui/index.html
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true

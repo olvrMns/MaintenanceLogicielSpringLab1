@@ -7,4 +7,5 @@ import edu.mv.db.models.Rocket;
 
 @Service
 public interface RocketRepository extends CrudRepository<Rocket, Integer> {
+
 }

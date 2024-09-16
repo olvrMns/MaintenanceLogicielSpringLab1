@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.mv.models.RocketDTO;
 import edu.mv.persistence.RocketNotFoundException;
-import edu.mv.service.RocketService;
+import edu.mv.RocketService;
 
 @RestController
 @RequestMapping("/")
