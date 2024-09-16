@@ -1,8 +1,8 @@
 package edu.mv.db.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Table(name = "rocket")
 @Entity
