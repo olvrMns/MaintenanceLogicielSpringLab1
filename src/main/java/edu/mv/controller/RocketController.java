@@ -15,7 +15,7 @@ import edu.mv.RocketService;
 @RequestMapping("/")
 public class RocketController {
 
-    private RocketService rocketService;
+    private final RocketService rocketService;
 
     public RocketController(RocketService rocketService) {
         this.rocketService = rocketService;
@@ -24,7 +24,7 @@ public class RocketController {
     @GetMapping("/rocket/{rocketid}")
     public RocketDTO getRocket(@PathVariable(value = "rocketid") final String id) throws GetRocketException {
         try {
-            return rocketService.getRocket(Integer.valueOf(id));
+            return rocketService.getRocket(Integer.parseInt(id));
         } catch (RocketNotFoundException e) {
             throw new GetRocketException();
         }
