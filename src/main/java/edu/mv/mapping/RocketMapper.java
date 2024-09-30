@@ -12,10 +12,10 @@ public interface RocketMapper {
 
     RocketMapper INSTANCE = Mappers.getMapper(RocketMapper.class);
 
-    @Mapping(source = "type", target = "type")
+    @Mapping(source = "type", target = "category")
     RocketDTO RocketToRocketDTO(Rocket Rocket);
 
-    @Mapping(source = "type", target = "type")
+    @Mapping(source = "category", target = "type")
     Rocket RocketDTOToRocket(RocketDTO RocketDTO);
 
 }

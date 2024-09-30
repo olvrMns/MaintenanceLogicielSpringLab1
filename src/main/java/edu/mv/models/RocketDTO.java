@@ -4,7 +4,7 @@ public class RocketDTO {
 
     private int id;
     private String name;
-    private String type;
+    private String category;
 
     public int getId() {
         return id;
@@ -14,8 +14,8 @@ public class RocketDTO {
         return name;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 
     public void setId(int id) {
@@ -26,7 +26,7 @@ public class RocketDTO {
         this.name = name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
