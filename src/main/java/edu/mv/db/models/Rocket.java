@@ -23,7 +23,6 @@ public class Rocket {
         this.type = type;
     }
 
-
     public int getId() {
         return id;
     }

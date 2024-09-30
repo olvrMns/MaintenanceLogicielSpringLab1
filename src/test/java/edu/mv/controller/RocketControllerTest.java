@@ -25,7 +25,6 @@ class RocketControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-
         rocketDTO = new RocketDTO();
         rocketDTO.setId(1);
         rocketDTO.setName("Falcon 9");
