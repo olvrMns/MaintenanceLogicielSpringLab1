@@ -4,21 +4,38 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Clean') {
             steps {
-                echo 'building'
+                echo 'Clean...'
+                sh 'mvn clean'
+            }
+        }
+
+        stage('Validate') {
+            steps {
+                echo 'Validate...'
+                sh 'mvn validate'
+            }
+        }
+
+        stage('compile') {
+            steps {
+                echo 'Compile...'
+                sh 'mvn compile'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'testing'
+                echo 'Test...'
+                sh 'mvn test'
             }
         }
 
-        stage('Deploy') {
+        stage('package') {
             steps {
-                echo 'deploy'
+                echo 'Package...'
+                sh 'mvn package'
             }
         }
     }
