@@ -1,20 +1,22 @@
 pipeline {
-    agent 'JavaAgent'
+    agent {
+        label 'JavaAgent'
+    }
 
     stages {
-        stages('Build') {
+        stage('Build') {
             steps {
                 echo 'building'
             }
         }
 
-        stages('Test') {
+        stage('Test') {
             steps {
                 echo 'testing'
             }
         }
 
-        stages('Deploy') {
+        stage('Deploy') {
             steps {
                 echo 'deploy'
             }
